@@ -13,7 +13,7 @@ resource "aws_ecr_repository" "ecr_repository" {
 ## Key pair
 resource "aws_key_pair" "key_pair" {
   key_name   = "key-pair-lab"
-  public_key = file("~/.ssh/aws_key_lab_devops.pub")
+  public_key = var.public_key
 }
 
 ## ec2

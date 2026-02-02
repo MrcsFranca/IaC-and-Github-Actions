@@ -20,6 +20,10 @@ jobs:
   job1:
     name: Terraform CI
     runs-on: ubuntu-latest
+
+    env:
+      TF_VAR_public_key: ${{secrets.TF_VAR_public_key}}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v6.0.1
@@ -44,4 +48,4 @@ jobs:
 
       - name: Terraform apply
         run: terraform apply -auto-approve tfplan.tfout
-        if: github.event.input.apply == 'true'
+        if: github.event.inputs.apply == 'true'
