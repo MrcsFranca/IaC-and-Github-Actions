@@ -1,16 +1,16 @@
 name: Terraform CI/CD
 
 on:
-workflow_dispatch:
-  inputs:
-    logLevel:
-      description: 'Executar terraform apply?'
-      required: true
-      default: 'false'
-      type: choice
-      options:
-        - true
-        - false 
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Executar terraform apply?'
+        required: true
+        default: 'false'
+        type: choice
+        options:
+          - true
+          - false 
 
 permissions:
   id-token: write
