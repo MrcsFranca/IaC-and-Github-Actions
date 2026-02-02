@@ -1,9 +1,3 @@
-## bucket
-resource "aws_s3_bucket" "s3_bucket" {
-  bucket        = "terraform-lab02-devops"
-  force_destroy = true
-}
-
 ## ecr
 resource "aws_ecr_repository" "ecr_repository" {
   name                 = "site-prod"
