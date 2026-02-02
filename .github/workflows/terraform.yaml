@@ -11,6 +11,22 @@ on:
         options:
           - true
           - false 
+      destroy:
+        description: 'Executar terraform destroy?'
+        required: true
+        default: 'false'
+        type: choice
+        options:
+          - true
+          - false 
+      plan_destroy:
+        description: 'Planejar o terraform destroy?'
+        required: true
+        default: 'false'
+        type: choice
+        options:
+          - true
+          - false 
 
 permissions:
   id-token: write
@@ -49,3 +65,11 @@ jobs:
       - name: Terraform apply
         run: terraform apply -auto-approve tfplan
         if: github.event.inputs.apply == 'true'
+
+      - name: Terraform plan destroy
+        run: terraform plan -destroy -out=tfplan
+        if: github.event.inputs.plan_destroy == 'true'
+
+      - name: Terraform destroy
+        run: terraform apply -destroy -auto-approve tfplan
+        if: github.event.inputs.destroy == 'true'
