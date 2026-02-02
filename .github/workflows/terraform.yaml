@@ -44,8 +44,8 @@ jobs:
         run: terraform validate
 
       - name: Terraform plan
-        run: terraform plan -out=tfplan.tfout
+        run: terraform plan -out=tfplan
 
       - name: Terraform apply
-        run: terraform apply -auto-approve tfplan.tfout
+        run: terraform apply -auto-approve tfplan
         if: github.event.inputs.apply == 'true'
