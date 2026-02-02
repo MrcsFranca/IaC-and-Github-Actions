@@ -3,7 +3,7 @@ name: Terraform CI/CD
 on:
   workflow_dispatch:
     inputs:
-      logLevel:
+      apply:
         description: 'Executar terraform apply?'
         required: true
         default: 'false'
